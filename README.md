@@ -1,4 +1,4 @@
-Parse a Links header into a javascript object.
+Parse a [Links header](http://www.w3.org/Protocols/9707-link-header.html) into a javascript object.
 
 ## Install
 
