@@ -6,7 +6,10 @@
   "scripts": {
     "test": "mocha --require should"
   },
-  "repository": "",
+  "repository" :{ 
+    "type": "git", 
+    "url": "https://github.com/jfromaniello/parse-links.git"
+  },
   "keywords": [
     "links",
     "http"
