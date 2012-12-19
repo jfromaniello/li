@@ -2,7 +2,7 @@ Parse a [Links header](http://www.w3.org/Protocols/9707-link-header.html) into a
 
 ## Install
 
-    npm intsall parse-links
+    npm install parse-links
 
 ## Usage
 
