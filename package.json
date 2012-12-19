@@ -1,0 +1,20 @@
+{
+  "name": "parse-links",
+  "version": "0.0.1",
+  "description": "Parse the Links header format and return a javascript object.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha --require should"
+  },
+  "repository": "",
+  "keywords": [
+    "links",
+    "http"
+  ],
+  "author": "José F. Romaniello <jfromaniello@gmail.com> (http://joseoncode.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "should": "~1.2.1",
+    "mocha": "~1.7.4"
+  }
+}
