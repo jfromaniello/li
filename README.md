@@ -7,7 +7,7 @@ Parse a [Links header](http://www.w3.org/Protocols/9707-link-header.html) into a
 ## Usage
 
 ~~~javascript
-var parseLinks = require('../lib');
+var parseLinks = require('parse-links');
 var someLinksHeader = '</api/users?page=0&per_page=2>; rel="first", ' +
                       '</api/users?page=1&per_page=2>; rel="next", ' +
                       '</api/users?page=3&per_page=2>; rel="last"';
