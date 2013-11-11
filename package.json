@@ -1,12 +1,12 @@
 {
   "name": "parse-links",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Parse the Links header format and return a javascript object.",
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha --require should"
   },
-  "repository" :{
+  "repository": {
     "type": "git",
     "url": "https://github.com/jfromaniello/parse-links.git"
   },
