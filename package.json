@@ -6,8 +6,8 @@
   "scripts": {
     "test": "mocha --require should"
   },
-  "repository" :{ 
-    "type": "git", 
+  "repository" :{
+    "type": "git",
     "url": "https://github.com/jfromaniello/parse-links.git"
   },
   "keywords": [
@@ -15,6 +15,9 @@
     "http"
   ],
   "author": "José F. Romaniello <jfromaniello@gmail.com> (http://joseoncode.com)",
+  "contributors": [
+    "Ron Waldon <jokeyrhyme@gmail.com> (http://jokeyrhy.me/)"
+  ],
   "license": "MIT",
   "devDependencies": {
     "should": "~1.2.1",
