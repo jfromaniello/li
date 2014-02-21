@@ -1,6 +1,6 @@
 {
   "name": "parse-links",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Parse the Links header format and return a javascript object.",
   "main": "lib/index.js",
   "scripts": {
@@ -21,6 +21,7 @@
   "license": "MIT",
   "devDependencies": {
     "should": "~1.2.1",
-    "mocha": "~1.7.4"
+    "mocha": "~1.7.4",
+    "chai": "~1.9.0"
   }
 }
