@@ -2,7 +2,9 @@ Parse and format [Link header according to RFC 5988](http://www.w3.org/Protocols
 
 ## Install
 
-    $ npm install parse-links
+    $ npm install li
+
+Alsow works with bower, component.js, browserify, amd, etc.
 
 ## Usage
 
