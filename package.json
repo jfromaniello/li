@@ -1,14 +1,14 @@
 {
-  "name": "parse-links",
-  "version": "0.2.0",
+  "name": "li",
+  "version": "1.0.0",
   "description": "Parse the Links header format and return a javascript object.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha --require should"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jfromaniello/parse-links.git"
+    "url": "https://github.com/jfromaniello/li.git"
   },
   "keywords": [
     "links",
@@ -16,11 +16,11 @@
   ],
   "author": "José F. Romaniello <jfromaniello@gmail.com> (http://joseoncode.com)",
   "contributors": [
-    "Ron Waldon <jokeyrhyme@gmail.com> (http://jokeyrhy.me/)"
+    "Ron Waldon <jokeyrhyme@gmail.com> (http://jokeyrhy.me/)",
+    "JAM (https://github.com/jamc)"
   ],
   "license": "MIT",
   "devDependencies": {
-    "should": "~1.2.1",
     "mocha": "~1.7.4",
     "chai": "~1.9.0"
   }

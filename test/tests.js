@@ -1,11 +1,12 @@
-var parseLinks  = require('../lib'),
-    should      = require('chai').should();
+require('chai').should();
+var li     = require('../lib');
 
 var fixture = '</api/users?page=0&per_page=2>; rel="first", ' +
               '</api/users?page=1&per_page=2>; rel="next", ' +
               '</api/users?page=3&per_page=2>; rel="last", ' +
               '</api/users/123>; rel="self", ' +
               '</api/users/12345>; rel="related alternate"';
+
 var linksObject = {
   first               : '/api/users?page=0&per_page=2',
   next                : '/api/users?page=1&per_page=2',
@@ -17,7 +18,7 @@ var linksObject = {
 describe('parse-links', function () {
   describe('parse the links!', function(){
     it('it should parse a links string into an object', function () {
-      var parsed = parseLinks.parse(fixture);
+      var parsed = li.parse(fixture);
       parsed.first.should.eql('/api/users?page=0&per_page=2');
       parsed.next.should.eql('/api/users?page=1&per_page=2');
       parsed.last.should.eql('/api/users?page=3&per_page=2');
@@ -29,7 +30,7 @@ describe('parse-links', function () {
 
   describe('stringify link object', function(){
     it('should return a string with the links', function() {
-      stringified = parseLinks.stringify(linksObject);
+      var stringified = li.stringify(linksObject);
       stringified.should.equal(fixture);
     });
   });
