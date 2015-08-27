@@ -35,7 +35,7 @@ var linksObject = {
   last  : '/api/users?page=3&per_page=2',
 };
 
-console.log(parseLink.stringify(linksObject);
+console.log(li.stringify(linksObject);
 
 // This will print the string:
 // </api/users?page=0&per_page=2>; rel="first",
@@ -43,14 +43,10 @@ console.log(parseLink.stringify(linksObject);
 // </api/users?page=3&per_page=2>; rel="last"
 ~~~
 
-## Development
-
-    $ npm install -d
-
 ### Testing
 
     $ npm test
 
 ## License
 
-MIT!
+MIT 2014 - JOSE F. ROMANIELLO
