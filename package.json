@@ -1,6 +1,6 @@
 {
   "name": "li",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Parse the Links header format and return a javascript object.",
   "main": "lib/index.js",
   "scripts": {
@@ -17,7 +17,9 @@
   "author": "José F. Romaniello <jfromaniello@gmail.com> (http://joseoncode.com)",
   "contributors": [
     "Ron Waldon <jokeyrhyme@gmail.com> (http://jokeyrhy.me/)",
-    "JAM (https://github.com/jamc)"
+    "JAM <jacjam@gmail.com> (https://github.com/madeinjam)",
+    "Luke Purton (https://github.com/lukepur)",
+    "Markus Hedlund (https://github.com/Znarkus)"
   ],
   "license": "MIT",
   "devDependencies": {
