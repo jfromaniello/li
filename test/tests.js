@@ -5,9 +5,11 @@ var fixture = '</api/users?page=0&per_page=2>; rel="first", ' +
               '</api/users?page=1&per_page=2>; rel="next", ' +
               '</api/users?page=3&per_page=2>; rel="last", ' +
               '</api/users/123>; rel="self", ' +
+              '</api/users/123?filter=my;ids=1,2,3>; rel="filtered", ' +
               '</api/users/12345>; rel="related alternate", ' +
               '</api/users?name=Joe+Bloggs>; rel="http://example.org/search-results", ' +
-              '</api/users?status=registered>; rel="http://example.org/status-result collection"';
+              '</api/users?status=registered>; rel="http://example.org/status-result collection", ' +
+              '</api/users?q=smith&fields=fname,lname>; rel="search"';
 var quotfixture = '</api/users/1>; rel=home,'+
                   '</api/users/2>; rel=only one';
 
@@ -16,9 +18,11 @@ var linksObject = {
   next                                         : '/api/users?page=1&per_page=2',
   last                                         : '/api/users?page=3&per_page=2',
   self                                         : '/api/users/123',
+  filtered                                     : '/api/users/123?filter=my;ids=1,2,3',
   'related alternate'                          : '/api/users/12345',
   'http://example.org/search-results'          : '/api/users?name=Joe+Bloggs',
-  'http://example.org/status-result collection': '/api/users?status=registered'
+  'http://example.org/status-result collection': '/api/users?status=registered',
+  'search'                                     : '/api/users?q=smith&fields=fname,lname'
 };
 
 describe('parse-links', function () {
@@ -34,7 +38,8 @@ describe('parse-links', function () {
       parsed['http://example.org/search-results'].should.eql('/api/users?name=Joe+Bloggs');
       parsed['http://example.org/status-result'].should.eql('/api/users?status=registered');
       parsed.collection.should.eql('/api/users?status=registered');
-      Object.keys(parsed).length.should.eql(9);
+      parsed.search.should.eql('/api/users?q=smith&fields=fname,lname');
+      Object.keys(parsed).length.should.eql(11);
     });
   });
 
