@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jfromaniello/li.svg?branch=master)](https://travis-ci.org/jfromaniello/li)
+
 Parse and format [Link header according to RFC 5988](http://www.w3.org/Protocols/9707-link-header.html).
 
 ## Install
