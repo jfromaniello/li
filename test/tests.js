@@ -63,8 +63,24 @@ describe('parse-links', function () {
       parsed[2].rel[0].should.equal('up');
       parsed[2].rev[0].should.equal('home');
     });
+  });
 
+  describe('links without rel (issue #7)', function() {
+    it('should return the links', function() {
+      var parsed = li.parse('</3>; rel="next", </2>; rel="prev", </home>, </void>; rel="ignored"');
+      parsed.next.should.eql('/3');
+      parsed.prev.should.eql('/2');
+      parsed.ignored.should.eql('/void');
+    });
 
+    it('should return the links with extended param', function() {
+      var parsed = li.parse('</3>; rel="next", </2>; rel="prev", </home>, </void>; rel="ignored"', { extended: true });
+      parsed[0].rel[0].should.eql('next');
+      parsed[0].link.should.eql('/3');
+      parsed[1].rel[0].should.eql('prev');
+      parsed[1].link.should.eql('/2');
+      parsed[2].link.should.eql('/home');
+    });
   });
 
 
