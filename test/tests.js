@@ -10,20 +10,11 @@ var fixture = '</api/users?page=0&per_page=2>; rel="first", ' +
               '</api/users?name=Joe+Bloggs>; rel="http://example.org/search-results", ' +
               '</api/users?status=registered>; rel="http://example.org/status-result collection", ' +
               '</api/users?q=smith&fields=fname,lname>; rel="search"';
+
 var quotfixture = '</api/users/1>; rel=home,'+
                   '</api/users/2>; rel=only one';
 
-var linksObject = {
-  first                                        : '/api/users?page=0&per_page=2',
-  next                                         : '/api/users?page=1&per_page=2',
-  last                                         : '/api/users?page=3&per_page=2',
-  self                                         : '/api/users/123',
-  filtered                                     : '/api/users/123?filter=my;ids=1,2,3',
-  'related alternate'                          : '/api/users/12345',
-  'http://example.org/search-results'          : '/api/users?name=Joe+Bloggs',
-  'http://example.org/status-result collection': '/api/users?status=registered',
-  'search'                                     : '/api/users?q=smith&fields=fname,lname'
-};
+
 
 describe('parse-links', function () {
   describe('parse the links!', function(){
@@ -52,10 +43,47 @@ describe('parse-links', function () {
     });
   });
 
-  describe('stringify link object', function(){
-    it('should return a string with the links', function() {
-      var stringified = li.stringify(linksObject);
-      stringified.should.equal(fixture);
+  describe('with extra param (issue #6)', function() {
+    it('should return the links', function() {
+      var parsed = li.parse('</3>; rel="next", </2>; rel="prev", </home>; rel="up"; rev="home", </void>; rel="ignored"');
+      parsed.next.should.eql('/3');
+      parsed.prev.should.eql('/2');
+      parsed.up.should.eql('/home');
     });
+
+    it('should return the complete parsed object when using extended true', function() {
+      var parsed = li.parse('</3>; rel="next", </2>; rel="prev", </home>; rel="up"; rev="home", </void>; rel="ignored"', { extended: true });
+      parsed[0].link.should.equal('/3');
+      parsed[0].rel[0].should.equal('next');
+
+      parsed[1].link.should.equal('/2');
+      parsed[1].rel[0].should.equal('prev');
+
+      parsed[2].link.should.equal('/home');
+      parsed[2].rel[0].should.equal('up');
+      parsed[2].rev[0].should.equal('home');
+    });
+
+
+  });
+
+
+});
+
+describe('stringify link object', function(){
+  it('should return a string with the links', function() {
+    var linksObject = {
+      first                                        : '/api/users?page=0&per_page=2',
+      next                                         : '/api/users?page=1&per_page=2',
+      last                                         : '/api/users?page=3&per_page=2',
+      self                                         : '/api/users/123',
+      filtered                                     : '/api/users/123?filter=my;ids=1,2,3',
+      'related alternate'                          : '/api/users/12345',
+      'http://example.org/search-results'          : '/api/users?name=Joe+Bloggs',
+      'http://example.org/status-result collection': '/api/users?status=registered',
+      'search'                                     : '/api/users?q=smith&fields=fname,lname'
+    };
+    var stringified = li.stringify(linksObject);
+    stringified.should.equal(fixture);
   });
 });
