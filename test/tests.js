@@ -102,4 +102,13 @@ describe('stringify link object', function(){
     var stringified = li.stringify(linksObject);
     stringified.should.equal(fixture);
   });
+
+  it('should group links', function() {
+    var linksObject = {
+      last : '/things?page=10&per_page=20',
+      next : '/things?page=10&per_page=20',
+    };
+    var stringified = li.stringify(linksObject);
+    stringified.should.equal('</things?page=10&per_page=20>; rel="last next"');
+  });
 });
