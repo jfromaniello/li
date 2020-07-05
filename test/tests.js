@@ -1,5 +1,5 @@
 var should = require('chai').should();
-var li     = require('../lib');
+var li     = require('../pkg/dist-node');
 
 var fixture = '</api/users?page=0&per_page=2>; rel="first", ' +
               '</api/users?page=1&per_page=2>; rel="next", ' +
